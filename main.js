@@ -23,7 +23,7 @@ function addNumbers(string) {
 
         // check to see if the character is a number or not
         if ( !isNaN( parseInt( character ) )  ) {
-
+// 
             // if it is a number we start at that index and check the subsequent elements to see if they are numbers or not
             for (var k = i; !isNaN(character) && ( character !== " " ) ; k ++) {
 
@@ -35,8 +35,8 @@ function addNumbers(string) {
                     placeHolder.push(character);
                 }
 
-            // set i = k to skip the susequent number in the case of multiple numbers in a row
-            i = k;
+                // set i = k to skip the susequent number in the case of multiple numbers in a row
+                i = k;
             }
         }
 
@@ -59,6 +59,71 @@ function addNumbers(string) {
 
     // reduce the array to a single number by adding each number together (starting at 0) 
     return _.reduce(finalArr, function(memo, num) {
-        return memo + num
+        return memo + num;
     }, 0);
 }
+
+
+//===========================================================================//
+                        /* ~~~ longestWord ~~~ */ 
+//===========================================================================//
+
+var longString = "DUDE! WHAT DOES MINE SAY friendo?!"
+
+function longestWord(string) {
+
+    // split string
+    var arr = string.split('');
+
+    // take out punctuation using regex
+    var noPunc = _.filter(arr, function(s) {
+
+        return s.search(/[a-zA-z ]/) !== -1;
+        
+    }).join('').split(' ');
+
+    //set longest word to a reduction that compares each word to the current longest word
+    var longestWord =  _.reduce(noPunc, function(memo, word) {
+
+        if (word.length > memo.length) {
+
+            return word;
+
+        } else {
+
+            return memo;
+        }
+    }, "");
+
+    return longestWord; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
