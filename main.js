@@ -63,6 +63,7 @@ function addNumbers(string) {
     }, 0);
 }
 
+//> VICTORY
 
 //===========================================================================//
                         /* ~~~ longestWord ~~~ */ 
@@ -79,7 +80,7 @@ function longestWord(string) {
     var noPunc = _.filter(arr, function(s) {
 
         return s.search(/[a-zA-z ]/) !== -1;
-        
+
     }).join('').split(' ');
 
     //set longest word to a reduction that compares each word to the current longest word
@@ -98,11 +99,34 @@ function longestWord(string) {
     return longestWord; 
 }
 
+//> VICTORY
+
+//===========================================================================//
+                        /* ~~~ averageStringNumbers ~~~ */ 
+//===========================================================================//
+
+var averageString = "Hello34 I'4m Chr908is. Nice32 2 m33t y8u!"
+
+function averageStringNumbers(string) {
+
+    //returns summed number
+    var totalNumber = addNumbers(string);
+    console.log(totalNumber);
+
+    var splitArr = string.split('');
+
+    // set variable to count the number of letters in the string
+    var charNumber = _.filter(splitArr, function(s) {
+
+        return s.search(/[a-zA-Z]/) >= 0;
+    }).length;
+
+    // round the answer up
+    return Math.round(totalNumber/charNumber);
+}
 
 
-
-
-
+//> VICTORY
 
 
 
